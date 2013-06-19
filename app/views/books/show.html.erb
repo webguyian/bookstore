@@ -12,7 +12,7 @@
 
 <p>
   <b>Price:</b>
-  <%= @book.price %>
+  <%= number_to_currency(@book.price) %>
 </p>
 
 <p>
@@ -26,12 +26,12 @@
 </p>
 
 <p>
-  <b>Number of pages:</b>
-  <%= @book.number_of_pages %>
+  <b><%= @book.style %></b>
+  <%= @book.number_of_pages %> pages
 </p>
 
 <p>
-  <b>Isbn:</b>
+  <b>ISBN:</b>
   <%= @book.ISBN %>
 </p>
 

@@ -1,53 +1,59 @@
-<%= form_for(@book) do |f| %>
-  <% if @book.errors.any? %>
+<div class="row-fluid">
+  <div class="span4 offset2">
+    <%= form_for(@book) do |f| %>
+    <% if @book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
       <ul>
-      <% @book.errors.full_messages.each do |msg| %>
+        <% @book.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
-   <div class="field">
-    <%= f.label :style %><br />
-    <%= f.text_field :style %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :publisher %><br />
-    <%= f.text_field :publisher %>
-  </div>
     <div class="field">
-    <%= f.label :release_date %><br />
-    <%= f.date_select :release_date %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+    </div>
+    <div class="field">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :style %>
+      <%= f.text_field :style %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, :size => "18x6" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :number_of_pages %><br />
-    <%= f.number_field :number_of_pages %>
+  <div class="span4">
+    <div class="field">
+      <%= f.label :publisher %>
+      <%= f.text_field :publisher %>
+    </div>
+    <div class="field">
+      <%= f.label :release_date %>
+      <%= f.date_select :release_date, :order => [:month, :day, :year] %>
+    </div>
+    <div class="field">
+      <%= f.label :number_of_pages %>
+      <%= f.number_field :number_of_pages %>
+    </div>
+    <div class="field">
+      <%= f.label :ISBN, "ISBN" %>
+      <%= f.text_field :ISBN %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: "btn" %>
+    </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :ISBN, "ISBN" %><br />
-    <%= f.text_field :ISBN %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
