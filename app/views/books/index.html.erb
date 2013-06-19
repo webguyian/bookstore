@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th></th>
+  </thead>
+<tbody>
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= number_to_currency(book.price) %></td>
+    <td><%= link_to 'View Details', book, remote: true %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= render "layouts/modal" %>
+
+<%= link_to raw("<i class=icon-plus></i> New Book"), new_book_path, class: "btn" %>
